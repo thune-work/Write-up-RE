@@ -42,7 +42,7 @@ v17 = 0x623233633832606F
 
 v18 = 0x7E3A37
 
-*Code viết theo little-endian và chuyển sang ký tự ascii: [stings_solve.py](https://github.com/thune-work/ImaginaryCTF-Write-up/tree/main/stings/stings_solve.py)
+*Code viết theo little-endian và chuyển sang ký tự ascii: [stings_solve.py](https://github.com/thune-work/Write-up-RE/blob/main/File%20solve/stings/stings_solve.py)
 
 ![result](https://github.com/thune-work/ImaginaryCTF-Write-up/blob/main/Image/stings/result.PNG)
 
@@ -55,7 +55,7 @@ Sau khi sử dụng IDApro, ta thấy chuỗi s nhập vào được lưu vào v
 
 ![main](https://github.com/thune-work/Write-up-RE/blob/main/Image/hvhpgs%7Bsynt%7D/IDApro.PNG)
 
-Vì vậy, chúng ta lấy cái chuỗi dài dài kia xong shift, rot. Hàm shift, rot cũng phải được viết ngược lại => File [solve.py](https://github.com/thune-work/Write-up-RE/blob/main/hvhpgs%7Bsynt%7D/solve.py)
+Vì vậy, chúng ta lấy cái chuỗi dài dài kia xong shift, rot. Hàm shift, rot cũng phải được viết ngược lại => File [solve.py](https://github.com/thune-work/Write-up-RE/blob/main/File%20solve/hvhpgs%7Bsynt%7D/solve.py)
 
 >FLAG: uiuctf{i_propose_to_consider_the_question_can_machines_think}
 >
@@ -64,7 +64,7 @@ Trong mã giả ta thấy các ký tự của chuỗi nhập vào trải qua m�
 
 Cũng giống bài trước, ta làm ngược lại quá trình bằng cách lấy các phần tử trong mảng v26 rồi cho qua các vòng for theo thứ tự ngược lại. Khi đã có các phần tử cuối cùng, xor mỗi phần tử với 0xFF để lấy 1 bytes.
 
-File [solve.py](https://github.com/thune-work/Write-up-RE/blob/main/Tedious/solve.py)
+File [solve.py](https://github.com/thune-work/Write-up-RE/blob/main/File%20solve/Tedious/solve.py)
 
 > FLAG: uiuctf{y0u_f0unD_t43_fl4g_w0w_gud_j0b}
 
