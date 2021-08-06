@@ -4,7 +4,7 @@ File đính kèm: [stings](https://github.com/thune-work/ImaginaryCTF-Write-up/t
 
 Đầu tiên, ta phải kiểm tra định dạng file.
 
-![checkStings](https://github.com/thune-work/ImaginaryCTF-Write-up/blob/main/Image/fileStings.PNG)
+![checkStings](https://github.com/thune-work/Write-up-RE/blob/main/Image/stings/fileStings.PNG)
 
 Như ta thấy trong hình trên, stings là file ELF 64-bit LSB pie excutetable, x86-64 => sử dụng IDApro 64-bit
 
@@ -49,5 +49,35 @@ v18 = 0x7E3A37
 > FLAG: ictf{str1ngs_4r3nt_h1dd3n_17b21a69}
 
 
+# UIUCTF
+## 1. hvhpgs{synt}
+Sau khi sử dụng IDApro, ta thấy chuỗi s nhập vào được lưu vào v3 (dòng 22). Sau đó qua một nùi code hong làm thay đổi v3 thì tới dòng 30 - 36, các ký tự của chuỗi nhập vào được chuyển qua 2 hàm lần lượt là rot và shift, nếu chuỗi thay đổi bằng "azeupqd_ftq_cgqefuaz_omz_ymotuzqe_ftuzwu_bdabaeq_fa_o" thì ta sẽ được flag.
 
+![main](https://github.com/thune-work/Write-up-RE/blob/main/Image/hvhpgs%7Bsynt%7D/IDApro.PNG)
+
+Vì vậy, chúng ta lấy cái chuỗi dài dài kia xong shift, rot. Hàm shift, rot cũng phải được viết ngược lại => File [solve.py](https://github.com/thune-work/Write-up-RE/blob/main/hvhpgs%7Bsynt%7D/solve.py)
+
+>FLAG: uiuctf{i_propose_to_consider_the_question_can_machines_think}
+>
+## 2. Tedious
+Trong mã giả ta thấy các ký tự của chuỗi nhập vào trải qua một mùi vòng for để thay đổi từng ký tự. Nếu sau trầm luân như vậy mà các ký tự này vẫn bằng 1 byte (lưu ý là 1 byte) của mỗi phần tử của mảng v26 (mỗi phần tử 4 bytes) được liệt kê ra thì ta được flag.
+
+Cũng giống bài trước, ta làm ngược lại quá trình bằng cách lấy các phần tử trong mảng v26 rồi cho qua các vòng for theo thứ tự ngược lại. Khi đã có các phần tử cuối cùng, xor mỗi phần tử với 0xFF để lấy 1 bytes.
+
+File [solve.py](https://github.com/thune-work/Write-up-RE/blob/main/Tedious/solve.py)
+
+> FLAG: uiuctf{y0u_f0unD_t43_fl4g_w0w_gud_j0b}
+
+## 3. Prime Extravaganza
+Bài này thì đơn giản mà sao không hiểu cái đề lừa người quá. 
+
+![idapro](https://github.com/thune-work/Write-up-RE/blob/main/Image/Prime%20Extravaganza/Capture.PNG)
+
+Code bảo phải nhập 5 số lớn hơn 0 và nhỏ hơn 1 000 000. Nếu như các số này chia hết cho v9 = 19753*(j + 1) (0<=j<4). Ở đây, 19753 là 1 số nguyên tố lớn. Do đó, ta lấy luôn các giá trị v9 ở mỗi vòng for lần lượt là các số cần nhập vào là đã pass. 
+
+Tiếp theo, đề yêu cẩu lấy tổng các số vừa nhập xong md5 nó => flag
+
+File [solve.py](https://github.com/thune-work/Write-up-RE/blob/main/File%20solve/Prime%20Extravaganza/solve.py)
+
+>FLAG: uiuctf{627360eb8aa0da45ff04a514dab40e54}
 
