@@ -48,7 +48,7 @@ v18 = 0x7E3A37
 
 > FLAG: ictf{str1ngs_4r3nt_h1dd3n_17b21a69}
 
-
+## 2. jumprope
 # UIUCTF
 ## 1. hvhpgs{synt}
 Sau khi sử dụng IDApro, ta thấy chuỗi s nhập vào được lưu vào v3 (dòng 22). Sau đó qua một nùi code hong làm thay đổi v3 thì tới dòng 30 - 36, các ký tự của chuỗi nhập vào được chuyển qua 2 hàm lần lượt là rot và shift, nếu chuỗi thay đổi bằng "azeupqd_ftq_cgqefuaz_omz_ymotuzqe_ftuzwu_bdabaeq_fa_o" thì ta sẽ được flag.
